@@ -18,7 +18,7 @@ const App = () => {
         </div>
         <div className='main'>
           <Layout>
-            It will
+            App.js
             <div className='routes'>
               {/*  allow us to have multiple paths*/}
               {/* previously we used switch but after react dom 6 update we use router  */}
@@ -33,8 +33,19 @@ const App = () => {
             </router>
             </div>
           </Layout>
+          {/* For now footer is not showing at bottom */}
+          <div className='footer' >
+            <Typography.Title level={5} style={{color:'white', textAlign:'center'}}>
+              Cryptoverse <br/>
+              All line reserved
+            </Typography.Title>
+            <Space>
+              <Link to="/"> Home </Link>
+              <Link to="/exchanges"> Exchanges </Link>
+              <Link to="/news"> News </Link>
+            </Space>
+          </div>
         </div>
-        <div className='footer'></div>
     </div>
   )
 }
