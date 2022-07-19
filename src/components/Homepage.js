@@ -1,32 +1,46 @@
-import React from 'react'
+import React from 'react';
 import millify from 'millify';
-import {Typography,Row,Col,Statistic} from 'antd'
-import {Link} from 'react-router-dom'
+import { Typography, Row, Col, Statistic } from 'antd';
+import { Link } from 'react-router-dom';
 
 import { useGetCryptosQuery } from '../services/cryptoApi';
-// This means that from now on assume that Title is in Typography
-const {Title} =Typography;
+import Cryptocurrencies from './Cryptocurrencies';
+import News from './News';
+
+//This means that from now on assume that Title is in Typography
+const { Title } = Typography;
 
 const Homepage = () => {
-   const { data, isFetching } = useGetCryptosQuery(10);
-   console.log(data);
+  const { data, isFetching } = useGetCryptosQuery(10);
+  const globalStats = data?.data?.stats??{};
+
+  if (isFetching) return "Loading...";
 
   return (
     <>
-      <Title level={2} className="heading"> Global Crypto Stats</Title>
-      <Row>
+      <Title level={2} className="heading">Global Crypto Stats</Title>
+      <Row gutter={[32, 32]}>
         {/* In antd total screen width is 24 so this is taking half of the total width */}
-        <Col span={12}><Statistic title="Total cryptocurrencies" value="5"/></Col>
-        <Col span={12}><Statistic title="Total Exchanges" value="5"/></Col>
-        <Col span={12}><Statistic title="Total Market cap" value="5"/></Col>
-        <Col span={12}><Statistic title="Total 24h Volume" value="5"/></Col>
-        <Col span={12}><Statistic title="Total markets" value="5"/></Col>
-
-        {/* Current values are just place holders we will put real values after some time */}
+        <Col span={12}><Statistic title="Total Cryptocurrencies" value={globalStats.total} /></Col>
+        {/* Its a dynamic value thats why we used {}  */}
+        <Col span={12}><Statistic title="Total Exchanges" value={millify(globalStats.totalExchanges)} /></Col>
+        <Col span={12}><Statistic title="Total Market Cap:" value={`$${millify(globalStats.totalMarketCap)}`} /></Col>
+        <Col span={12}><Statistic title="Total 24h Volume" value={`$${millify(globalStats.total24hVolume)}`} /></Col>
+        <Col span={12}><Statistic title="Total Cryptocurrencies" value={globalStats.total} /></Col>
+        <Col span={12}><Statistic title="Total Markets" value={millify(globalStats.totalMarkets)} /></Col>
       </Row>
+      <div className="home-heading-container">
+        <Title level={2} className="home-title">Top 10 Cryptos In The World</Title>
+        <Title level={3} className="show-more"><Link to="/cryptocurrencies">Show more</Link></Title>
+      </div>
+      <Cryptocurrencies simplified />
+      <div className="home-heading-container">
+        <Title level={2} className="home-title">Latest Crypto News</Title>
+        <Title level={3}><Link to="/news">Show more</Link></Title>
+      </div>
+      <News simplified />
     </>
+  );
+};
 
-  )
-}
-
-export default Homepage
+export default Homepage;

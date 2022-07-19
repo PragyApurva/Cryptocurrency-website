@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as router,Switch,Routes, Route, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
-import second from './App.css'
+import './App.css'
 
 // we required a lot of imports for diff Components
 // so we will import with help of index js file
