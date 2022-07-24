@@ -288,7 +288,9 @@ a:hover{
 }
 
 .select-news{
+    margin: 20px auto 30px auto;
     width: 180px;
+    text-align: center;
 }
 .news-card{
     min-height: 300px !important;
