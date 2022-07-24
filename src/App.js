@@ -12,13 +12,13 @@ import './App.css'
 const App = () => {
   return (
     <div className='app'>
-      <h1>App</h1>
+
         <div className='navbar'>
            <Navbar/>
         </div>
         <div className='main'>
           <Layout>
-            App.js
+
             <div className='routes'>
               {/*  allow us to have multiple paths*/}
               {/* previously we used switch but after react dom 6 update we use router  */}
@@ -37,7 +37,7 @@ const App = () => {
           <div className='footer' >
             <Typography.Title level={5} style={{color:'white', textAlign:'center'}}>
               Cryptoverse <br/>
-              All line reserved
+              All Rights reserved
             </Typography.Title>
             <Space>
               <Link to="/"> Home </Link>
