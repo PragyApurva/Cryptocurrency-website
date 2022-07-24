@@ -14,7 +14,6 @@ export const Cryptocurrencies = ({simplified}) => {
   //It accepts call back function, and dependency array
   //It means that this function will get exicuted at the start and if ay of 2 values cahanges
   useEffect(()=>{
-
       const filteredData=cryptosList?.data?.coins.filter((coin)=>coin.name.toLowerCase().includes(searchTerm.toLowerCase()));
       setCryptos(filteredData);
   }, [cryptosList,searchTerm]);
