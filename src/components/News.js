@@ -36,12 +36,12 @@ const News = ({simplified}) => {
         </Col>
       )}
       {cryptoNews.value.map((news,i)=>(
-          <Col xm={24} sm={12} lg={6} key={i}>
+          <Col xs={24} sm={12} lg={8} key={i}>
             <Card hoverable className='news-card'>
-              <a href={news.url} target="_blank" rel="noref">
+            <a href={news.url} target="_blank" rel="noreferrer">
                 <div className='news-image-container'>
                   <Title className='news-title' level={4} > {news.name} </Title>
-                  <img src={news?.img?.thumbnail?.contentUrl||demoImage[ Math.floor(Math.random()*demoImage.length) ] } height="70" width="70" alt="news"></img>
+                  <img src={news?.img?.thumbnail?.contentUrl||demoImage[ Math.floor(Math.random()*demoImage.length) ] } height="70" width="70" alt=""></img>
                 </div>
                 <p>
                   {news.description>100 ? `${news.description.substring(0,100)}...`
@@ -49,7 +49,7 @@ const News = ({simplified}) => {
                 </p>
                 <div className='provider-container'>
                   <div>
-                      <Avatar src={ news.provider[0]?.image?.thumbnail?.contentUrl || demoImage[ Math.floor(Math.random()*demoImage.length)]} alt="news"/>
+                      <Avatar src={ news.provider[0]?.image?.thumbnail?.contentUrl || demoImage[ Math.floor(Math.random()*demoImage.length)]} alt=""/>
                       <Text className='provider-name'>{news.provider[0]?.name}</Text>
                   </div>
                       <Text>{moment(news.datePublished).startOf('ss').fromNow()}</Text>
@@ -59,9 +59,8 @@ const News = ({simplified}) => {
             </Card>
           </Col>
         ))}
-
     </Row>
-  )
-}
+  );
+};
 
 export default News;

@@ -289,7 +289,7 @@ a:hover{
 
 .select-news{
     margin: 20px auto 30px auto;
-    width: 180px;
+    width: 250px;
     text-align: center;
 }
 .news-card{
@@ -377,4 +377,8 @@ width: 70%;
     flex-direction: column;
     padding: 20px;
     align-items: center;
+}
+.sp{
+    margin-right: 10px;
+    font-size: large;
 }

@@ -5,17 +5,18 @@ import {Card,Row,Col,Input} from 'antd'
 import Loader from './Loader';
 
 import {useGetCryptosQuery} from '../services/cryptoApi'
-import { SmallDashOutlined } from '@ant-design/icons'
+
 
 export const Cryptocurrencies = ({simplified}) => {
   const count=simplified?10:100;
   const {data:cryptosList,isFetching} =useGetCryptosQuery(count);
-  const [cryptos,setCryptos] = useState(cryptosList?.data?.coins);
+  const [cryptos,setCryptos] = useState();
   const [searchTerm, setSearchTerm] = useState('');
   //It accepts call back function, and dependency array
   //It means that this function will get exicuted at the start and if ay of 2 values cahanges
   useEffect(()=>{
-      const filteredData=cryptosList?.data?.coins.filter((coin)=>coin.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    setCryptos(cryptosList?.data?.coins);
+      const filteredData=cryptosList?.data?.coins.filter((item)=>item.name.toLowerCase().includes(searchTerm));
       setCryptos(filteredData);
   }, [cryptosList,searchTerm]);
 
@@ -37,8 +38,8 @@ export const Cryptocurrencies = ({simplified}) => {
           cryptos?.map((currency)=>(
             // xs=extra Small, sm=small, lg=large devices
             // for xs we use 1 per row, thats why it consumes 24 spaces, for large its 4 per row
-            <Col xs={24} sm={12} lg={6} className="crypto-card" key={currency.id}>
-              <Link to={`/crypto/${currency.id}`}> {/* we use `` for dynamic data its below esc*/}
+            <Col xs={24} sm={12} lg={6} className="crypto-card" key={currency.uuid}>
+              <Link key={currency.uuid} to={`/crypto/${currency.uuid}`}> {/* we use `` for dynamic data its below esc*/}
                 <Card title={`${currency.rank}. ${currency.name}`}
                     extra={<img className="crypto-image" src={currency.iconUrl}/>}
                     hoverable
