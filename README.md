@@ -3,8 +3,7 @@
 
 ## Link to the site
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/3e0ee1ed-a4ce-432e-84b3-c83aeab96c69/deploy-status)([https://cryptoanalysissite.netlify.app]])
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3e0ee1ed-a4ce-432e-84b3-c83aeab96c69/deploy-status)](https://cryptoanalysissite.netlify.app/)
 ## Technologies Used
 
 ### API Used
