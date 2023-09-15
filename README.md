@@ -11,7 +11,7 @@
 
 The APIs are used for getting realtime cryptocurrency data and news.
 
-Links: [https://web.postman.co/workspace/My-Workspace~d4269804-025d-46a7-8c11-332b6d517d64/collection/16401766-49b3b098-18ee-4a2e-af32-cb2c74a07bef?ctx=documentation](https://rapidapi.com/Coinranking/api/coinranking1)
+Links: (https://rapidapi.com/Coinranking/api/coinranking1)
 
 Links: https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-news-search1
 
